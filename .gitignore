@@ -1,0 +1,27 @@
+### Selenium y Automatización BCH ###
+# Reportes de ejecución
+test-output/
+reports/
+allure-results/
+ExtentReports/
+/results/
+reportesApoderados/
+.idea/
+build/
+.gradle/
+gradle/
+
+# Archivos de Log
+*.log
+/logs/
+
+# WebDrivers locales (por si alguna vez descargas un chromedriver a mano)
+/drivers/
+*.exe
+*.xlsx
+*.xls
+
+# Archivos de configuración sensibles (¡Clave para el Banco!)
+config.properties
+.env
+credentials.json
