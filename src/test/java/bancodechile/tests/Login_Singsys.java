@@ -28,11 +28,18 @@ public class Login_Singsys extends BaseTest {
         for (String rut : ruts) {
             singsysPage.setPersonIdNumber(rut);
             singsysPage.clickBtnSearchByPersonId();
+            AutomationUtils.pausa(1000);
+            if (singsysPage.existeMensajeDeError()) {
+                System.out.println("El RUT: " + rut+ " no cumple con requisitos");
+                driver.get(URL);
+                singsysPage.esperaNuevoUsuario(rut);
+                continue;
+            }
+            singsysPage.clickBtnPDF();
             singsysPage.clickBtnPDF();
             AutomationUtils.pausa(2000);
             driver.get(URL);
-            //AutomationUtils.pausa(4000);
-            singsysPage.esperaNuevoUsuario();
+            singsysPage.esperaNuevoUsuario(rut);
         }
     }
 }

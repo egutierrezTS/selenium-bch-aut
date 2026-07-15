@@ -9,7 +9,7 @@ import java.util.List;
 public class AutomationUtils {
 
     private static final DataFormatter formatter = new DataFormatter();
-    static String ruta = System.getProperty("user.dir") + "\\src\\test\\resources\\signsys_13072026 - copia.xlsx";
+    static String ruta = System.getProperty("user.dir") + "\\src\\test\\resources\\signsys_13072026.xlsx";
     public static List<String> leerColumnaExcel(int columna) {
         List<String> datos = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream(ruta);
@@ -19,7 +19,7 @@ public class AutomationUtils {
                 Row row = sheet.getRow(i);
                 if (row != null && row.getCell(columna) != null) {
                     String valorCelda = formatter.formatCellValue(row.getCell(columna)).trim();
-                    if (!valorCelda.isEmpty()) {
+                    if (!valorCelda.isEmpty() && valorCelda.length()>9) {
                         datos.add(valorCelda);
                     }
                 }

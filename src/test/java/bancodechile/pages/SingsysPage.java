@@ -45,6 +45,8 @@ public class SingsysPage {
     @FindBy(id = "MainMenu_DXI2i1i0_T")
     private WebElement btnVigente;
 
+    @FindBy(id = "cphMain_lblStatusMsg")
+    private WebElement lblError;
 
     private WebDriver driver;
 
@@ -83,10 +85,11 @@ public class SingsysPage {
         lblUsername.sendKeys(text);
     }
 
-    public WebElement esperaNuevoUsuario(){
+    public WebElement esperaNuevoUsuario(String rut){
         WebDriverWait wait = new WebDriverWait(driver, DEFAULT_WAIT_FOR_ELEMENT_TIMEOUT);
         wait.ignoring(StaleElementReferenceException.class);
-        return wait.until(visibilityOf(lblPersonIdNumber));
+        System.out.println("Archivo descargado para el rut: "+ rut);
+        return wait.until(elementToBeClickable(lblPersonIdNumber));
     }
 
     public void setPassword(String text){
@@ -97,6 +100,14 @@ public class SingsysPage {
     public void setPersonIdNumber(String text){
         waitFor(lblPersonIdNumber).clear();
         lblPersonIdNumber.sendKeys(text);
+    }
+
+    public boolean existeMensajeDeError() {
+        try {
+            return lblError.isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 
     public void clickBtnAvanzado(){
