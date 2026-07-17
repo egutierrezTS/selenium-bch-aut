@@ -23,7 +23,7 @@ gradle/
 *.xls
 *.sh
 
-# Archivos de configuración sensibles (¡Clave para el Banco!)
+# Archivos de configuración sensibles
 config.properties
 .env
 credentials.json

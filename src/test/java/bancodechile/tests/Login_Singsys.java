@@ -36,7 +36,6 @@ public class Login_Singsys extends BaseTest {
                 continue;
             }
             singsysPage.clickBtnPDF();
-            singsysPage.clickBtnPDF();
             AutomationUtils.pausa(2000);
             driver.get(URL);
             singsysPage.esperaNuevoUsuario(rut);
