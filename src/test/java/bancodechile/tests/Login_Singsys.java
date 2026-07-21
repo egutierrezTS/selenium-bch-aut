@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Login_Singsys extends BaseTest {
 
-
     @Test
     public void testLoginCorrecto() throws Throwable{
 

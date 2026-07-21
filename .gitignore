@@ -10,7 +10,7 @@ reportesApoderados/
 build/
 .gradle/
 gradle/
-/pruebas/
+pruebas/
 
 # Archivos de Log
 *.log

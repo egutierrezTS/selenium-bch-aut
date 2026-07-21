@@ -4,11 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class SingsysPage {
 
@@ -36,27 +33,15 @@ public class SingsysPage {
     @FindBy(id = "cphMain_btnPDF")
     private WebElement btnPDF;
 
-    @FindBy(id = "MainMenu_DXI2_T")
-    private WebElement btnMenuConsultas;
-
-    @FindBy(id = "MainMenu_DXI2i1_T")
-    private WebElement btnInformeLegal;
-
-    @FindBy(id = "MainMenu_DXI2i1i0_T")
-    private WebElement btnVigente;
-
     @FindBy(id = "cphMain_lblStatusMsg")
     private WebElement lblError;
 
     private WebDriver driver;
-
     private static final Duration DEFAULT_WAIT_FOR_ELEMENT_TIMEOUT = Duration.ofSeconds(15);
 
-
-    // Constructor: Este es el puente entre el test y la página
     public SingsysPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this); // Inicializa los @FindBy si los usas
+        PageFactory.initElements(driver, this);
     }
 
     private WebElement waitFor(WebElement element) {
@@ -128,17 +113,5 @@ public class SingsysPage {
 
     public void clickBtnPDF(){
         click(btnPDF);
-    }
-
-    public void clickBtnMenuConsultas(){
-        click(btnMenuConsultas);
-    }
-
-    public void clickBtnInformeLegal(){
-        click(btnInformeLegal);
-    }
-
-    public void clickBtnVigente(){
-        click(btnVigente);
     }
 }
